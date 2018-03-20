@@ -15,9 +15,6 @@
       page-break-inside: avoid;
       padding: 5px;
     }
-    .ma-ticket-num{
-      margin:15px auto;
-    }
   </style>
 </head>
 
@@ -31,7 +28,7 @@
         <tt>Archivo</tt> para imprimir los tickets.
       </p>
       <form class="pa2 black-80 ma-form">
-        <div class="fl w-third bg-light-yellow measure ma-input">
+        <div class="fl w-30 bg-light-yellow measure ma-input">
           <label for="subject" class="f6 b db mb2">Evento</label>
           <input v-model.trim="subject" id="subject" 
             class="input-reset ba b--black-20 pa2 mb2 db w-100" 
@@ -41,7 +38,7 @@
             <span class="i">Salida cultural</span>
           </small>
         </div>
-        <div class="fl w-third bg-light-yellow measure ma-input">
+        <div class="fl w-50 bg-light-yellow measure ma-input">
           <label for="datetime" class="f6 b db mb2">Fecha y hora</label>
           <input v-model="datetime" id="datetime" 
             class="input-reset ba b--black-20 pa2 mb2 db w-100"
@@ -51,13 +48,23 @@
             <span class="i">20 de Marzo. 9:00am</span>
           </small>
         </div>
-        <div class="fl w-third bg-light-yellow measure ma-input">
-          <label for="tickets" class="f6 b db mb2">Número de tickets</label>
+        <div class="fl w-10 bg-light-yellow measure ma-input">
+          <label for="price" class="f6 b db mb2">Precio</label>
+          <input v-model.number="price" id="price" 
+            class="input-reset ba b--black-20 pa2 mb2 db w-100" 
+            type="text" min="10" aria-describedby="price-desc">
+          <small id="price-desc" class="f6 black-60 db mb2">
+            Ej:
+            <span class="i">3</span>
+          </small>
+        </div>
+        <div class="fl w-10 bg-light-yellow measure ma-input">
+          <label for="tickets" class="f6 b db mb2">Tickets</label>
           <input v-model.number="tickets" id="tickets" 
             class="input-reset ba b--black-20 pa2 mb2 db w-100" 
             type="number" min="10" aria-describedby="tickets-desc">
           <small id="tickets-desc" class="f6 black-60 db mb2">
-            Ejemplo:
+            Ej:
             <span class="i">10</span>
           </small>
         </div>
@@ -67,15 +74,24 @@
       </div>
       <div class="fl w-100 black-70 templates">
         <div class="fl w-50 ma-ticket ba" v-for="ticket in tickets">
-          <h3 class="f1 fl w-20 tc mw8 ma-ticket-num">{{ ticket }}</h3>
-          <h3 class="f3 fl w-60 tc">Asociación de mayores de Aldaia</h3>
-          <span class="fl w-20 center">
-            <img style="max-width:100%" src="imgs/logo.png" alt="logo">
-          </span>
-          <div class="fl w-100 tc v-mid">
-            <h5 class="f5 fl w-50 dtc">{{ subject }}</h5>
-            <h5 class="f5 fl w-50 dtc">{{ datetime }}</h5>
+          <div class="fl w-100 dt">
+              <div class="fl w-10 center mt2 mb3 dtc">
+                  <img style="max-width:100%" src="imgs/logo.png" alt="logo">
+                </div>
+                <h6 class="f6 fl w-50 tc mt2 mb1 black-60">
+                  Asociación de pensionistas y jubilados 
+                  Mayor 20 <br> UDP Aldaia (Valencia) 
+                </h6>
+                <h2 class="f2 fl w-20 tc mt2 mb2 dtc black-60 ma-ticket-num">{{ price }}€</h2>
+                <h1 class="f1 fl w-20 tc mt2 mb2 dtc sans-serif ba b--dashed b--black-70 bw1 ma-ticket-num">{{ ticket }}</h1>
           </div>
+          
+          <div class="fl w-100">
+            <h3 class="f3 mt1 mb1 tc sans-serif ttu">{{ subject }}</h3>
+          </div>
+          <div class="fl w-100">
+              <h3 class="f3 mt1 mb1 tc sans-serif">{{ datetime }}</h3>
+            </div>
         </div>
       </div>
     </div>
@@ -85,9 +101,10 @@
     var app = new Vue({
       el: '#app',
       data: {
-        subject: 'Salida cultural',
-        datetime: '20 de Marzo: 10:00am',
-        tickets: 10
+        subject  : 'Salida cultural primavera',
+        datetime : '20 de Marzo · 10:00am · Mercado',
+        tickets  : 10,
+        price    : 3
       }
     })
   </script>
