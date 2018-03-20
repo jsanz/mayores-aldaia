@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Plantilla para tickets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+  <style>
+    #app {
+      width: 960px;
+    }
+
+    .ma-input {
+      padding: 10px;
+    }
+    
+    .ma-ticket{
+      page-break-inside: avoid;
+      padding: 5px;
+    }
+    .ma-ticket-num{
+      margin:15px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="fl-100">
+    <div class="mw8 center" id="app">
+      <h1 class="f1 tc">Plantilla para tickets</h1>
+      <p>Actualice los campos con los datos de la actividad:</p>
+      <form class="pa4 black-80 ma-form">
+        <div class="fl w-third measure ma-input">
+          <label for="subject" class="f6 b db mb2">Evento</label>
+          <input v-model.trim="subject" id="subject" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text" aria-describedby="subject-desc">
+          <small id="subject-desc" class="f6 black-60 db mb2">
+            Ejemplo:
+            <span class="i">Salida cultural</span>
+          </small>
+        </div>
+        <div class="fl w-third measure ma-input">
+          <label for="datetime" class="f6 b db mb2">Fecha y hora</label>
+          <input v-model="datetime" id="datetime" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text" aria-describedby="datetime-desc">
+          <small id="datetime-desc" class="f6 black-60 db mb2">
+            Ejemplo:
+            <span class="i">20 de Marzo. 9:00am</span>
+          </small>
+        </div>
+        <div class="fl w-third measure ma-input">
+          <label for="tickets" class="f6 b db mb2">Número de tickets</label>
+          <input v-model.number="tickets" id="tickets" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="number" min="10" aria-describedby="tickets-desc">
+          <small id="tickets-desc" class="f6 black-60 db mb2">
+            Ejemplo:
+            <span class="i">10</span>
+          </small>
+        </div>
+      </form>
+      <div class="fl w-100">
+        <hr/>
+      </div>
+      <div class="fl w-100 black-70 templates">
+        <div class="fl w-50 ma-ticket ba" v-for="ticket in tickets">
+          <h3 class="f1 fl w-20 tc mw8 ma-ticket-num">{{ ticket }}</h3>
+          <h3 class="f3 fl w-60 tc">Asociación de mayores de Aldaia</h3>
+          <span class="fl w-20 center"><img style="max-width:100%" src="imgs/logo.png" alt="logo"></span>
+          <div class="fl w-100 tc v-mid">
+            <h5 class="f5 fl w-50 dtc">{{ subject }}</h5>
+            <h5 class="f5 fl w-50 dtc">{{ datetime }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        subject: 'Salida cultural',
+        datetime: '20 de Marzo: 10:00am',
+        tickets: 10
+      }
+    })
+  </script>
+</body>
+
+</html>
