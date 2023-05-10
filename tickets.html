@@ -23,6 +23,9 @@
       .ma-ticket {
         page-break-inside: avoid;
       }
+      .phone {
+        font-size: .7em;
+      }
     </style>
   </head>
 
@@ -103,39 +106,36 @@
         <div class="fl w-100 black-70 templates">
           <div class="fl w-50 ma-ticket pa1" v-for="ticket in tickets">
             <div class="fl w-90 ba ph3 pv3">
-              <div class="fl w-100 dt bb mb2">
-                <div class="fl w-80 tc mt1 mb1 ph3 black-60 sans-serif">
-                  <div class="fl w-20 center dtc">
-                    <img
-                      style="max-width: 100%"
-                      src="imgs/logo-strip.png"
-                      alt="logo"
-                    />
+              <div class="fl w-100 center dtc bb">
+                <img
+                  style="max-width: 100%"
+                  src="imgs/logo-nuevo-horizontal.png"
+                  alt="logo"
+                />
+              </div>
+              <div class="fl w-100 dt mt2">
+                <div class="fl w-80">
+                  <div class="fl w-100">
+                    <h3 class="f3 mt1 mb1 tc sans-serif ttu">{{ subject }}</h3>
                   </div>
-                  <h3 class="f5 mt1 mb1 pb1">
-                    Asociación de jubilados y pensionistas · Mayor 20 <br />
-                    UDP Aldaia (Valencia)
-                  </h3>
-                  <h4 class="f5 mt2 mb1 mh2 center">Teléfono contacto 
-                      <span class="f4">651301315</span>
-                  </h4>
+                  <div class="fl w-100">
+                    <h3 class="f3 mt1 mb1 tc sans-serif">{{ datetime }}</h3>
+                  </div>
                 </div>
                 <div class="fl w-20 center dtc">
-                  <h2 class="f2 fl w-100 tc mt1 mb1 dtc black-60 ma-ticket-num">
+                  <h4 class="phone center tc sans-serif mb0 mt0">
+                    ☎  6513<br>
+                    01315
+                  </h4>
+                  <h2 class="f3 fl w-100 tc mt1 mb1 dtc black-60 ma-ticket-num">
                     {{ price }}€
                   </h2>
                   <h2
-                    class="f2 fl w-100 tc mt1 mb2 dtc sans-serif ba b--dashed b--black-70 bw1 ma-ticket-num"
+                    class="f2 fl w-100 tc mt1 mb2 dtc sans-serif pt1 pb1 ba b--dashed b--black-70 bw1 ma-ticket-num"
                   >
                     {{ ticket }}
                   </h2>
                 </div>
-              </div>
-              <div class="fl w-100">
-                <h3 class="f3 mt1 mb1 tc sans-serif ttu">{{ subject }}</h3>
-              </div>
-              <div class="fl w-100">
-                <h3 class="f3 mt1 mb1 tc sans-serif">{{ datetime }}</h3>
               </div>
             </div>
           </div>
