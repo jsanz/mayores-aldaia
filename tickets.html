@@ -23,9 +23,6 @@
       .ma-ticket {
         page-break-inside: avoid;
       }
-      .phone {
-        font-size: .7em;
-      }
     </style>
   </head>
 
@@ -105,7 +102,7 @@
         </div>
         <div class="fl w-100 black-70 templates">
           <div class="fl w-50 ma-ticket pa1" v-for="ticket in tickets">
-            <div class="fl w-90 ba ph3 pv3">
+            <div class="fl w-90 ba ph2 pv2">
               <div class="fl w-100 center dtc bb">
                 <img
                   style="max-width: 100%"
@@ -114,7 +111,12 @@
                 />
               </div>
               <div class="fl w-100 dt mt2">
-                <div class="fl w-80">
+                <div class="fl w-80 pr2">
+                  <div class="fl w-100 pb1 mb1 bt-0 br-0 bl-0 b--dotted bb ">
+                    <h4 class="f4 center tc sans-serif mb0 mt0">
+                      Contacto 📞 651301315
+                    </h4>
+                  </div>
                   <div class="fl w-100">
                     <h3 class="f3 mt1 mb1 tc sans-serif ttu">{{ subject }}</h3>
                   </div>
@@ -123,11 +125,7 @@
                   </div>
                 </div>
                 <div class="fl w-20 center dtc">
-                  <h4 class="phone center tc sans-serif mb0 mt0">
-                    ☎  6513<br>
-                    01315
-                  </h4>
-                  <h2 class="f3 fl w-100 tc mt1 mb1 dtc black-60 ma-ticket-num">
+                  <h2 class="f2 fl w-100 tc mt1 mb1 dtc black-60 ma-ticket-num">
                     {{ price }}€
                   </h2>
                   <h2
@@ -148,7 +146,7 @@
         el: "#app",
         data: {
           subject: "Salida cultural primavera",
-          datetime: "20 de Marzo · 10:00am · TAMA",
+          datetime: "20 de Marzo · 10:00 · TAMA",
           tickets: 10,
           price: 3,
         },
